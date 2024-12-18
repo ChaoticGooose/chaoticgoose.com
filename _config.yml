@@ -1,0 +1,31 @@
+exclude: [README.md, **/README.md]
+timezone: Australia/Melbourne
+markdown: kramdown
+theme: riggraz/no-style-please
+
+title: Raine Fairlie
+url: chaoticgoose.com
+baseurl: ""
+
+favicon: "logo.png"
+
+defaults:
+  author: Raine Fairlie
+  email: raine.fairlie@chaoticgoose.com
+
+# Markdown Processor opts
+kramdown:
+  syntax_highlighter: coderay
+  syntax_highlighter_opts:
+    # https://github.com/kramdown/syntax-coderay
+    tab_width: 4
+
+# https://github.com/riggraz/no-style-please/
+theme_config:
+  back_home_text: ".."
+  date_format: "%d-%m-%Y"
+
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
