@@ -1,6 +1,8 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const handlebarsPlugin = require("@11ty/eleventy-plugin-handlebars");
 module.exports = eleventyConfig => {
     eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(handlebarsPlugin);
 
 	eleventyConfig.addShortcode('excerpt', post => extractExcerpt(post)); // for {{ exerpt <post> }}
 	function extractExcerpt(post) {
