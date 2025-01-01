@@ -1,0 +1,70 @@
+---
+title: Default
+---
+
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/bundle.css">
+
+        <title>{{title}}</title>
+    </head>
+
+    <body>
+        <header id="site-header">
+            <h1 class="title">raine <span id="initial">f.</span></h1>
+            <nav class="navbar">
+                <ul class="navbar-nav links">
+                    <li class="nav-item">
+                        <a
+                            {% if page.url == '/' %}
+                                class="active nav-link" aria-current="page"
+                            {% else %}
+                            class="nav-link"
+                            {% endif %} href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            {% if page.url == '/about' %}
+                                class="active nav-link" aria-current="page"
+                            {% else %}
+                            class="nav-link"
+                            {% endif %} href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            {% if page.url == '/archive' %}
+                                class="active nav-link" aria-current="page"
+                            {% else %}
+                                class="nav-link"
+                            {% endif %} href="/archive">Archive</a>
+                    </li>
+                </ul>
+            </nav>
+            <hr class="dotted divider">
+        </header>
+
+        <h1>{{title}}</h1>
+
+        {{ content }}
+        
+        <footer id="site-footer">
+            <hr class="dotted divider">
+            <ul class="links">
+                <li class="rss">
+                    <a href="/feed.xml">RSS</a>
+                </li>
+                <li class="social-link twitter">
+                    <a href="https://twitter.com/chaoticgooose">Twitter</a>
+                </li>
+                <li class="social-link github">
+                    <a href="github.com/chaoticgooose">GitHub</a>
+                </li>
+            </ul>
+            <p>&copy; 2025 Raine Fairlie</p>
+        </footer>
+    </body>
+</html>

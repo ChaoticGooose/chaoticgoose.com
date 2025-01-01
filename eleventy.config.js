@@ -4,6 +4,8 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(handlebarsPlugin);
 
+    eleventyConfig.addPassthroughCopy("bundle.css");
+
 	eleventyConfig.addShortcode('excerpt', post => extractExcerpt(post)); // for {{ exerpt <post> }}
 	function extractExcerpt(post) {
 		if(!post.templateContent) return '';
