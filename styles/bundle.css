@@ -1,6 +1,6 @@
 html {
     font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: times, serif;
     line-height: 1.2;
     background-color: #d29eff;
 }
@@ -37,6 +37,7 @@ hr.dotted {
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    padding-top: 0;
 }
 
 .links {
@@ -51,4 +52,39 @@ hr.dotted {
 
 .links li {
     margin: 0 10px;
+}
+
+p.discription {
+    margin-top: 0;
+}
+
+h3.post {
+    margin-bottom: 0;
+}
+
+.meta {
+    display: flex;
+    flex-direction: row;
+}
+
+ul.meta {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.meta li {
+    padding: 10px;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    list-style-type: none;
+
+    font-size: 0.8rem;
+}
+
+
+.meta li:first-child {
+    padding-left: 0;
+    margin-left: 0;
 }

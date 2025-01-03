@@ -1,12 +1,100 @@
 ---
-title: "Home"
-layout: main
+title: Home
 ---
 
-<ul>
-    {% for post in collections.post reversed %}
-    <li><a href="{{post.url}}">{{post.data.title}}</a> - {{post.date}}</li>
-    {% excerpt post %}
-    {%endfor%}
-</ul>
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="styles/bundle.css">
+
+        <title>{{title}}</title>
+    </head>
+
+    <body>
+        <header id="site-header">
+            <h1 class="title">raine <span id="initial">f.</span></h1>
+            <nav class="navbar">
+                <ul class="navbar-nav links">
+                    <li class="nav-item">
+                        <a
+                            {% if page.url == '/' %}
+                                class="active nav-link" aria-current="page"
+                            {% else %}
+                            class="nav-link"
+                            {% endif %} href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            {% if page.url == '/about' %}
+                                class="active nav-link" aria-current="page"
+                            {% else %}
+                            class="nav-link"
+                            {% endif %} href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            {% if page.url == '/archive' %}
+                                class="active nav-link" aria-current="page"
+                            {% else %}
+                                class="nav-link"
+                            {% endif %} href="/archive">Archive</a>
+                    </li>
+                </ul>
+            </nav>
+            <hr class="dotted divider">
+        </header>
+
+        <!-- Start Content -->
+        <div class=about>
+        <p id="about">
+        Hi, I'm Raine, Welcome to my website! I'm an Australian Trans-girlie, with a passion for Programming and Engineering! This site mainly exists to showcase my projects and host my <a href=/posts>blog</a>. Currently I'm in my last year of high school (year 12), so most of my time is unfortunately spent doing that whole thing, but when I actually have extra time you can find me working on one of my projects on <a href=github.com/chaoticgooose>GitHub</a>.
+        <br> <br>
+        I'm aiming for 1-2 posts per week here, with no real set topic or theme, just whatever I feel like writing about at the time.
+        <br> <br>
+        - Raine xx
+        </p>
+        </div class="about">
+
+        <h2 id="latest-posts">Latest Posts</h2>
+        <!-- Latest 3 posts with link to more posts -->
+        {% for post in collections.post limit:3 %}
+            <p>
+            <a href="{{ post.url }}" class="post"><h3 class="post post-title">{{ post.data.title }}</h3></a>
+            <ul class="meta">
+                <li class="date"><strong>{{ post.date | date: "%b %d, %Y" }}</strong></li>
+                <li class="author">By <strong>{{ post.data.author }}</strong></li>
+                <li class="categories">
+                    in 
+                    {% for category in post.data.categories %}
+                        <strong><a href="/categories/{{ category | slug }}">{{ category }}</a></strong>
+                    {% endfor %}
+                </li>
+            </ul>
+            <p class="discription"><strong>{{ post.data.discription }}</strong></p>
+            {% excerpt post %}
+            </p>
+        {% endfor %}
+        <a href="/posts" id="latest-posts-more">More Posts</a>
+        <!-- End Content -->
+
+        <footer id="site-footer">
+            <hr class="dotted divider">
+            <ul class="links">
+                <li class="rss">
+                    <a href="/feed.xml">RSS</a>
+                </li>
+                <li class="social-link twitter">
+                    <a href="https://twitter.com/chaoticgooose">Twitter</a>
+                </li>
+                <li class="social-link github">
+                    <a href="github.com/chaoticgooose">GitHub</a>
+                </li>
+            </ul>
+            <p>&copy; 2025 Raine Fairlie</p>
+        </footer>
+    </body>
+</html>

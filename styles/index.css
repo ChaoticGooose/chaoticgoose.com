@@ -1,0 +1,28 @@
+#about {
+    line-height: 1.6;
+    max-width: 50%;
+    
+}
+
+div.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h2#latest-posts {
+    text-align: center;
+    color: #280340;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.latest-posts-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
