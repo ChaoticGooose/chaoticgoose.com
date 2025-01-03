@@ -29,19 +29,11 @@ title: Home
                     </li>
                     <li class="nav-item">
                         <a
-                            {% if page.url == '/about' %}
-                                class="active nav-link" aria-current="page"
-                            {% else %}
-                            class="nav-link"
-                            {% endif %} href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a
-                            {% if page.url == '/archive' %}
+                            {% if page.url == '/posts' %}
                                 class="active nav-link" aria-current="page"
                             {% else %}
                                 class="nav-link"
-                            {% endif %} href="/archive">Archive</a>
+                            {% endif %} href="/posts">Posts</a>
                     </li>
                 </ul>
             </nav>
