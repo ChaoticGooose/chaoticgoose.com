@@ -11,21 +11,23 @@ layout: main
 
 
 {% for post in posts%}
-<p>
-    <a href="{{ post.url }}" class="post"><h3 class="post post-title">{{ post.data.title }}</h3></a>
-    <ul class="meta">
-        <li class="date"><strong>{{ post.date | date: "%b %d, %Y" }}</strong></li>
-        <li class="author">By <strong>{{ post.data.author }}</strong></li>
-        <li class="categories">
-            in 
-            {% for category in post.data.categories %}
-                <strong><a href="/categories/{{ category | slug }}">{{ category }}</a></strong>
-            {% endfor %}
-        </li>
-    </ul>
-    <p class="discription"><strong>{{ post.data.discription }}</strong></p>
-    {% excerpt post %}
-    </p>
+    <div class="post">
+        <a href="{{ post.url }}"><h3 class="post post-title">{{ post.data.title }}</h3></a>
+        <ul class="meta">
+            <li class="date"><strong>{{ post.date | date: "%b %d, %Y" }}</strong></li>
+            <li class="author">By <strong>{{ post.data.author }}</strong></li>
+            <li class="categories">
+                in 
+                {% for category in post.data.categories %}
+                    <strong><a href="/categories/{{ category | slug }}">{{ category }}</a></strong>
+                {% endfor %}
+            </li>
+        </ul>
+        <p class="discription"><strong>{{ post.data.discription }}</strong></p>
+        <div class="excerpt">
+            {% excerpt post %}
+        </div>
+    </div>
 {% endfor %}
 <p>
     {% if pagination.href.previous %}

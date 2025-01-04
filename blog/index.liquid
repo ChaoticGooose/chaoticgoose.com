@@ -62,6 +62,7 @@ pagination:
         {% for post in pagination.items%}
             <div class="post-seperator">
             <a href="{{ post.url }}" class="post"><h3 class="post post-title">{{ post.data.title }}</h3></a>
+            <p class="discription"><strong>{{ post.data.discription }}</strong></p>
             <ul class="meta">
                 <li class="date"><strong>{{ post.date | date: "%b %d, %Y" }}</strong></li>
                 <li class="author">By <strong>{{ post.data.author }}</strong></li>
@@ -72,7 +73,6 @@ pagination:
                     {% endfor %}
                 </li>
             </ul>
-            <p class="discription"><strong>{{ post.data.discription }}</strong></p>
             {% excerpt post %}
             </div>
         {% endfor %}
