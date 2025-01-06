@@ -60,8 +60,8 @@ pagination:
         <h2 id="latest-posts">Latest Posts</h2>
         <!-- Latest 3 posts with link to more posts -->
         {% for post in pagination.items%}
-            <div class="post-seperator">
-            <a href="{{ post.url }}" class="post"><h3 class="post post-title">{{ post.data.title }}</h3></a>
+            <div class="post">
+            <a href="{{ post.url }}"><h3 class="post-title">{{ post.data.title }}</h3></a>
             <p class="discription"><strong>{{ post.data.discription }}</strong></p>
             <ul class="meta">
                 <li class="date"><strong>{{ post.date | date: "%b %d, %Y" }}</strong></li>
