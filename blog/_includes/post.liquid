@@ -1,0 +1,21 @@
+---
+layout: main
+---
+<link rel="stylesheet" href="/styles/post.css">
+
+<div class="full-post">
+<h1>{{ title }}</h1>
+<p class="discription"><strong>{{ discription }}</strong></p>
+<ul class="meta">
+    <li class="date"><strong>{{ date | date: "%b %d, %Y" }}</strong></li>
+    <li class="author">By <strong>{{ author }}</strong></li>
+    <li class="categories">
+        in 
+        {% for category in categories %}
+            <strong><a href="/categories/{{ category | slug }}">{{ category }}</a></strong>
+        {% endfor %}
+    </li>
+</ul>
+
+{{ content }}
+</div>

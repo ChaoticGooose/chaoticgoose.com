@@ -4,15 +4,16 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(handlebarsPlugin);
 
+    eleventyConfig.addPassthroughCopy("styles/post.css");
     eleventyConfig.addPassthroughCopy("styles/bundle.css");
     eleventyConfig.addPassthroughCopy("styles/index.css");
 
 	eleventyConfig.addShortcode('excerpt', post => extractExcerpt(post)); // for {{ exerpt <post> }}
 	function extractExcerpt(post) {
-		if(!post.templateContent) return '';
+		if(!post.templateContent) return ''; // Check if the post has text
 		if(post.templateContent.indexOf('</p>') > 0) {
-			let end = post.templateContent.indexOf('</p>');
-			return post.templateContent.substr(0, end+4);
+			let end = post.templateContent.indexOf('</p>'); 
+			return post.templateContent.substr(0, end+4); 
 		}
 		return post.templateContent;
 	}
