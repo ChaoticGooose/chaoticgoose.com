@@ -108,4 +108,7 @@ ul.meta {
     margin-top: 0;
     padding-top: 0.3rem;
 }
-
+ 
+.post {
+    width: 100%;
+}
