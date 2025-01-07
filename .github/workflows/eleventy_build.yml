@@ -1,9 +1,49 @@
-- name: Eleventy Action
-  # You may pin to the exact commit or the version.
-  # uses: TartanLlama/actions-eleventy@6c28b3072246fb361c537282e3eac5ab9b6ac85e
-  uses: TartanLlama/actions-eleventy@v1.2
-  with:
-    # Arguments to pass to the Eleventy invocation
-    args: # optional
-    # If set to `true`, `npm install` will be run before Eleventy is invoked
-    install_dependencies: true # optional
+name: 11ty deploy
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: [$default-branch]
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '32'
+      - run: npm install
+      - run: npm run build
+        working-directory: ./src
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./src/_site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
