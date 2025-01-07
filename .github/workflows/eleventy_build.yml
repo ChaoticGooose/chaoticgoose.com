@@ -40,7 +40,7 @@ jobs:
         run: npm ci
         working-directory: ${{ env.build_dir }}
       - name: Build
-        run: npx --no-install eleventy build
+        run: npx --no-install eleventy
         working-directory: ${{ env.build_dir }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
