@@ -12,7 +12,8 @@ permissions:
   pages: write
   id-token: write
 
-
+env:
+  build_dir: "build"
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -30,11 +31,11 @@ jobs:
           node-version: '23'
       - run: npm install
       - run: npm run build
-        working-directory: ./src
+        working-directory: ${{ env.build_dir }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          path: ./src/_site
+          path: ${{ env.build_dir }}/_site
 
   deploy:
     environment:
