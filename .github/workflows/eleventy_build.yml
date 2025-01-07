@@ -43,7 +43,7 @@ jobs:
         run: npx --no-install eleventy
         working-directory: ${{ env.build_dir }}
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: ${{ env.build_dir }}/_site
           name: github-pages
