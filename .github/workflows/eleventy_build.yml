@@ -45,6 +45,11 @@ jobs:
           npm run build
         working-directory: ${{ env.build_dir }}
 
+      - name: Set artifact perms
+        run: |
+          chmod -R a+rX ${{ env.build_dir }}/_site
+        working-directory: ${{ env.build_dir }}
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
