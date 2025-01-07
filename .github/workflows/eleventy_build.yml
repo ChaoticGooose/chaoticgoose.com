@@ -40,15 +40,14 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: ${{ env.BUILD_PATH }}
-
 deploy:
   environment:
     name: github-pages
-    url: ${{ steps.deploy.outputs_url }}
+    url: ${{ steps.deployment.outputs.page_url }}
   needs: build
   runs-on: ubuntu-latest
   name: Deploy
   steps:
     - name: Deploy to GitHub Pages
-    id: deploy
-    uses: actions/deploy-pages@v4
+      id: deployment
+      uses: actions/deploy-pages@v4
