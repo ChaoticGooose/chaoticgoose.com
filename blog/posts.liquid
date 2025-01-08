@@ -19,7 +19,6 @@ title: Posts
             <li class="date"><strong>{{ post.date | date: "%b %d, %Y" }}</strong></li>
             <li class="author">By <strong>{{ post.data.author }}</strong></li>
             <li class="categories">
-                in 
                 {% for category in post.data.categories %}
                     <strong><a href="/categories/{{ category | slug }}">{{ category }}</a></strong>
                 {% endfor %}
