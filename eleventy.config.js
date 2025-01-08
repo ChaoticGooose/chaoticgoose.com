@@ -1,7 +1,6 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 module.exports = eleventyConfig => {
     eleventyConfig.addPlugin(pluginRss);
-	eleventyConfig.addPlugin(handlebarsPlugin);
 
     eleventyConfig.addPassthroughCopy("styles/bundle.css");
     eleventyConfig.addPassthroughCopy("styles/index.css");
